@@ -27,4 +27,3 @@ function generatePassword(length, includeUppercase, includeSpecial, includeNumbe
 
     return password;
 }
-
