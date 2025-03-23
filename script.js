@@ -8,7 +8,7 @@ document.getElementById('generate').addEventListener('click', function () {
     document.getElementById('password').value = password;
 });
 
-function generatePassword(length, includeUppercase, includeSpecial, includeNumbers) {
+function generatePassword(length, includeUppercase, includeLwercase, includeSpecial, includeNumbers) {
     const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
     const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const numberChars = '0123456789';
