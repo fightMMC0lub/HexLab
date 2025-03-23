@@ -4,11 +4,11 @@ document.getElementById('generate').addEventListener('click', function () {
     const includeSpecial = document.getElementById('special').checked;
     const includeNumbers = document.getElementById('numbers').checked;
 
-    const password = generatePassword(length, includeUppercase, includeSpecial, includeNumbers);
+    const password = generatePassword(length, includeUppercase, includeLowercase, includeSpecial, includeNumbers);
     document.getElementById('password').value = password;
 });
 
-function generatePassword(length, includeUppercase, includeLwercase, includeSpecial, includeNumbers) {
+function generatePassword(length, includeUppercase, includeLowercase, includeSpecial, includeNumbers) {
     const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
     const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const numberChars = '0123456789';
@@ -18,6 +18,7 @@ function generatePassword(length, includeUppercase, includeLwercase, includeSpec
     if (includeUppercase) characters += uppercaseChars;
     if (includeNumbers) characters += numberChars;
     if (includeSpecial) characters += specialChars;
+    if (includeLowercase) characters += lowercase
 
     let password = '';
     for (let i = 0; i < length; i++) {
