@@ -1,40 +1,60 @@
-document.getElementById('generate').addEventListener('click', generatePassword);
+// script.js 
+function generate() { 
+	let dictionary = ""; 
+	if (document.getElementById("lowercaseCb").checked) { 
+		dictionary += "qwertyuiopasdfghjklzxcvbnm"; 
+	} 
+	if (document.getElementById("uppercaseCb").checked) { 
+		dictionary += "QWERTYUIOPASDFGHJKLZXCVBNM"; 
+	} 
+	if (document.getElementById("digitsCb").checked) { 
+		dictionary += "1234567890"; 
+	} 
+	if (document.getElementById("specialsCb").checked) { 
+		dictionary += "!@#$%^&*()_+-={}[];<>:"; 
+	} 
+	const length = document.querySelector( 
+		'input[type="range"]').value; 
 
-function generatePassword() {
-    let length = document.getElementById('length').value;
-    let includeLower = document.getElementById('lowercase').checked;
-    let includeUpper = document.getElementById('uppercase').checked;
-    let includeNumbers = document.getElementById('numbers').checked;
-    let includeSpecial = document.getElementById('special').checked;
+	if (length < 1 || dictionary.length === 0) { 
+		return; 
+	} 
 
-    const lowerChars = "abcdefghijklmnopqrstuvwxyz";
-    const upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const numberChars = "0123456789";
-    const specialChars = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
+	let password = ""; 
+	for (let i = 0; i < length; i++) { 
+		const pos = Math.floor(Math.random() * dictionary.length); 
+		password += dictionary[pos]; 
+	} 
 
-    let allChars = "";
-    if (includeLower) allChars += lowerChars;
-    if (includeUpper) allChars += upperChars;
-    if (includeNumbers) allChars += numberChars;
-    if (includeSpecial) allChars += specialChars;
+	document.querySelector( 
+		'input[type="text"]').value = password; 
+} 
 
-    if (allChars === "") {
-        alert("Please select at least one character type!");
-        return;
-    }
+[ 
+	...document.querySelectorAll( 
+		'input[type="checkbox"], button.generate'), 
+].forEach((elem) => { 
+	elem.addEventListener("click", generate); 
+}); 
 
-    let password = "";
-    for (let i = 0; i < length; i++) {
-        password += allChars[Math.floor(Math.random() * allChars.length)];
-    }
+document.querySelector('input[type="range"]').addEventListener( 
+	"input", (e) => { 
+		document.querySelector( 
+			"div.range span").innerHTML = e.target.value; 
+		generate(); 
+	}); 
 
-    document.getElementById('password').value = password;
-}
+document.querySelector("div.password button").addEventListener( 
+	"click", () => { 
+		const pass = document.querySelector('input[type="text"]').value; 
+		navigator.clipboard.writeText(pass).then(() => { 
+			document.querySelector( 
+				"div.password button").innerHTML = "copied!"; 
+			setTimeout(() => { 
+				document.querySelector( 
+					"div.password button").innerHTML = "copy"; 
+			}, 1000); 
+		}); 
+	}); 
 
-// Copy Function
-function copyPassword() {
-    let passwordField = document.getElementById("password");
-    passwordField.select();
-    document.execCommand("copy");
-    alert("Password copied to clipboard!");
-}
+generate();
