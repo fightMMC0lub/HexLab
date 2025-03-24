@@ -1,52 +1,40 @@
-// Wait until the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', function () {
-    const generateButton = document.getElementById('generate');
-    
-    // Listen for click event on Generate button
-    generateButton.addEventListener('click', function () {
-        // Get values from the form
-        const length = parseInt(document.getElementById('length').value);
-        const includeLowercase = document.getElementById('lowercase').checked;
-        const includeUppercase = document.getElementById('uppercase').checked;
-        const includeNumbers = document.getElementById('numbers').checked;
-        const includeSpecial = document.getElementById('special').checked;
+document.getElementById('generate').addEventListener('click', generatePassword);
 
-        // Generate the password
-        const password = generatePassword(length, includeLowercase, includeUppercase, includeNumbers, includeSpecial);
-        
-        // Output the password to the input field
-        document.getElementById('password').value = password;
-    });
+function generatePassword() {
+    let length = document.getElementById('length').value;
+    let includeLower = document.getElementById('lowercase').checked;
+    let includeUpper = document.getElementById('uppercase').checked;
+    let includeNumbers = document.getElementById('numbers').checked;
+    let includeSpecial = document.getElementById('special').checked;
 
-    // Function to generate password based on user choices
-    function generatePassword(length, includeLowercase, includeUppercase, includeNumbers, includeSpecial) {
-        const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
-        const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        const numberChars = '0123456789';
-        const specialChars = '!@#$%^&*()-_=+[]{}|;:,.<>?';
+    const lowerChars = "abcdefghijklmnopqrstuvwxyz";
+    const upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const numberChars = "0123456789";
+    const specialChars = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
 
-        // Initialize the character set
-        let characters = '';
+    let allChars = "";
+    if (includeLower) allChars += lowerChars;
+    if (includeUpper) allChars += upperChars;
+    if (includeNumbers) allChars += numberChars;
+    if (includeSpecial) allChars += specialChars;
 
-        // Append selected character types to the character set
-        if (includeLowercase) characters += lowercaseChars;
-        if (includeUppercase) characters += uppercaseChars;
-        if (includeNumbers) characters += numberChars;
-        if (includeSpecial) characters += specialChars;
-
-        // Handle case where no characters are selected
-        if (characters === '') {
-            alert('Please select at least one character type!');
-            return '';
-        }
-
-        // Generate a random password
-        let password = '';
-        for (let i = 0; i < length; i++) {
-            const randomIndex = Math.floor(Math.random() * characters.length);
-            password += characters[randomIndex];
-        }
-
-        return password;
+    if (allChars === "") {
+        alert("Please select at least one character type!");
+        return;
     }
-});
+
+    let password = "";
+    for (let i = 0; i < length; i++) {
+        password += allChars[Math.floor(Math.random() * allChars.length)];
+    }
+
+    document.getElementById('password').value = password;
+}
+
+// Copy Function
+function copyPassword() {
+    let passwordField = document.getElementById("password");
+    passwordField.select();
+    document.execCommand("copy");
+    alert("Password copied to clipboard!");
+}
