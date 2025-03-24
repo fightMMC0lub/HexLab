@@ -1,43 +1,85 @@
-/* From Uiverse.io by AlimurtuzaCodes */ 
-.btn {
-  border: none;
-  width: 15em;
-  height: 5em;
-  border-radius: 3em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  background: #1C1A1C;
-  cursor: pointer;
-  transition: all 450ms ease-in-out;
-}
+/* style.css */
+@import url( 
+"https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"); 
 
-.sparkle {
-  fill: #AAAAAA;
-  transition: all 800ms ease;
-}
-
-.text {
-  font-weight: 600;
-  color: #AAAAAA;
-  font-size: medium;
-}
-
-.btn:hover {
-  background: linear-gradient(0deg,#A47CF3,#683FEA);
-  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
-  inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
-  0px 0px 0px 4px rgba(255, 255, 255, 0.2),
-  0px 0px 180px 0px #9917FF;
-  transform: translateY(-2px);
-}
-
-.btn:hover .text {
-  color: white;
-}
-
-.btn:hover .sparkle {
-  fill: white;
-  transform: scale(1.2);
+body { 
+	background-color: #f8f8f8; 
+	color: #333; 
+	font-family: "Roboto Mono", monospace; 
 } 
+
+.generator { 
+	background-color: #f5f5f5; 
+	width: 250px; 
+	margin: 150px auto; 
+	padding: 20px; 
+	border-radius: 10px; 
+} 
+
+div.password { 
+	display: grid; 
+	grid-template-columns: auto min-content; 
+	border-radius: 10px; 
+	overflow: hidden; 
+} 
+
+div.password input { 
+	padding: 7px 10px; 
+	background-color: #ddd; 
+	border: 0; 
+	color: #333; 
+} 
+
+button { 
+	background-color: #4caf50; 
+	color: #fff; 
+	text-transform: uppercase; 
+	padding: 5px 15px; 
+	border: 0; 
+	border-radius: 10px; 
+} 
+
+div.password button { 
+	border-radius: 0; 
+} 
+
+div.range { 
+	margin: 10px 0; 
+	display: grid; 
+	grid-template-columns: 1fr min-content; 
+} 
+
+div.range span { 
+	background-color: #ddd; 
+	padding: 10px; 
+	margin-left: 20px; 
+	min-width: 30px; 
+	text-align: center; 
+	border-radius: 10px; 
+} 
+
+div.options { 
+	display: grid; 
+	grid-template-columns: 1fr 1fr; 
+	gap: 10px; 
+} 
+
+div.options label { 
+	display: block; 
+	background-color: #ddd; 
+	padding: 10px; 
+	border-radius: 10px; 
+	cursor: pointer; 
+	font-family: sans-serif; 
+} 
+
+button.generate { 
+	width: 100%; 
+	margin-top: 10px; 
+	padding: 10px; 
+} 
+
+h1 { 
+	text-align: center; 
+	color: #4caf50; 
+}
