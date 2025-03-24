@@ -1,89 +1,43 @@
-/* Cyberpunk-style theme */
-body {
-    background-color: #121212;
-    color: #fff;
-    font-family: 'Orbitron', sans-serif;
-    text-align: center;
-    padding: 20px;
+/* From Uiverse.io by AlimurtuzaCodes */ 
+.btn {
+  border: none;
+  width: 15em;
+  height: 5em;
+  border-radius: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background: #1C1A1C;
+  cursor: pointer;
+  transition: all 450ms ease-in-out;
 }
 
-.container {
-    max-width: 600px;
-    margin: auto;
-    background: #1e1e1e;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #5B51D8;
+.sparkle {
+  fill: #AAAAAA;
+  transition: all 800ms ease;
 }
 
-h1, h2, h3 {
-    color: #0ff;
+.text {
+  font-weight: 600;
+  color: #AAAAAA;
+  font-size: medium;
 }
 
-label {
-    font-size: 18px;
-    display: block;
-    margin: 10px 0;
+.btn:hover {
+  background: linear-gradient(0deg,#A47CF3,#683FEA);
+  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+  inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+  0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+  0px 0px 180px 0px #9917FF;
+  transform: translateY(-2px);
 }
 
-/* Styled input field */
-input[type="number"], input[type="text"] {
-    background: #222;
-    color: #0ff;
-    border: 1px solid #0ff;
-    padding: 8px;
-    font-size: 18px;
-    width: 100%;
-    text-align: center;
-    border-radius: 5px;
+.btn:hover .text {
+  color: white;
 }
 
-/* Cyber-styled button */
-button {
-    background: linear-gradient(90deg, #5B51D8, #833AB4, #E1306C, #FD1D1D);
-    color: white;
-    font-size: 18px;
-    border: none;
-    padding: 10px;
-    width: 100%;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-button:hover {
-    box-shadow: 0 0 15px #E1306C;
-}
-
-/* Custom checkbox styling */
-.checkbox-container {
-    display: flex;
-    align-items: center;
-    font-size: 20px;
-    margin: 10px 0;
-    cursor: pointer;
-}
-
-/* Hide default checkbox */
-.checkbox-container input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-/* Create cyber-style checkbox */
-.checkmark {
-    width: 25px;
-    height: 25px;
-    background: black;
-    border-radius: 50%;
-    display: inline-block;
-    position: relative;
-    margin-left: 10px;
-    transition: all 0.3s;
-}
-
-.checkbox-container input:checked ~ .checkmark {
-    box-shadow: 0 0 10px #5B51D8, 0 0 15px #833AB4;
-    background: #0ff;
-}
+.btn:hover .sparkle {
+  fill: white;
+  transform: scale(1.2);
+} 
