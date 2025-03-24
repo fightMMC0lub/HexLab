@@ -1,146 +1,89 @@
-/* === Body Styling === */
+/* Cyberpunk-style theme */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #111;
-    color: white;
+    background-color: #121212;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
     text-align: center;
     padding: 20px;
 }
 
-/* === Header === */
-h1 {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-/* === Main Generator Container === */
-.generator-container {
-    background: #181818;
-    padding: 25px;
-    border-radius: 10px;
-    width: 400px;
-    margin: auto;
-    box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.2);
-}
-
-/* === Input & Label Styling === */
-.input-group {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    font-size: 18px;
-}
-
-input[type="number"] {
-    width: 60px;
-    background: #222;
-    color: white;
-    border: none;
-    padding: 5px;
-    text-align: center;
-    font-size: 16px;
-    border-radius: 5px;
-}
-
-/* === Modern Checkbox Styling === */
 .container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 16px;
-    margin: 8px 0;
-    cursor: pointer;
+    max-width: 600px;
+    margin: auto;
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #5B51D8;
 }
 
-/* Custom Checkbox */
-.checkmark {
-    width: 18px;
-    height: 18px;
-    background: #222;
-    border-radius: 5px;
-    position: relative;
-    transition: 0.3s;
-    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+h1, h2, h3 {
+    color: #0ff;
 }
 
-.container input:checked ~ .checkmark {
-    background: #0ff;
-    box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.8);
-}
-
-/* Checkmark Symbol */
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-.container input:checked ~ .checkmark:after {
-    display: block;
-}
-
-.container .checkmark:after {
-    left: 6px;
-    top: 2px;
-    width: 5px;
-    height: 10px;
-    border: solid black;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-}
-
-/* === Generate Button === */
-button {
-    background: #0f0;
-    color: black;
-    border: none;
-    padding: 12px;
+label {
     font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
+    display: block;
+    margin: 10px 0;
+}
+
+/* Styled input field */
+input[type="number"], input[type="text"] {
+    background: #222;
+    color: #0ff;
+    border: 1px solid #0ff;
+    padding: 8px;
+    font-size: 18px;
     width: 100%;
-    margin-top: 10px;
+    text-align: center;
     border-radius: 5px;
-    transition: 0.3s;
+}
+
+/* Cyber-styled button */
+button {
+    background: linear-gradient(90deg, #5B51D8, #833AB4, #E1306C, #FD1D1D);
+    color: white;
+    font-size: 18px;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
 button:hover {
-    background: #0ff;
-    box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.8);
+    box-shadow: 0 0 15px #E1306C;
 }
 
-/* === Password Output Box === */
-.output {
-    margin-top: 15px;
-}
-
-#password {
-    width: 100%;
-    background: #222;
-    color: lime;
-    border: none;
-    padding: 10px;
-    font-size: 18px;
-    text-align: center;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-/* === Copy Button === */
-.copy-btn {
-    background: #ff0;
-    color: black;
-    border: none;
-    padding: 8px;
-    font-size: 14px;
+/* Custom checkbox styling */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    margin: 10px 0;
     cursor: pointer;
-    border-radius: 5px;
-    transition: 0.3s;
-    margin-top: 5px;
 }
 
-.copy-btn:hover {
-    background: #ff8000;
-    color: white;
+/* Hide default checkbox */
+.checkbox-container input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Create cyber-style checkbox */
+.checkmark {
+    width: 25px;
+    height: 25px;
+    background: black;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    margin-left: 10px;
+    transition: all 0.3s;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    box-shadow: 0 0 10px #5B51D8, 0 0 15px #833AB4;
+    background: #0ff;
 }
