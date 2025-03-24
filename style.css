@@ -47,3 +47,73 @@ button:hover {
     border: 1px solid #555;
 }
 
+/* === Custom Stylish Checkboxes === */
+/* Hide the default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    cursor: pointer;
+    font-size: 18px;
+    color: #fff;
+    user-select: none;
+    padding: 5px;
+}
+
+/* Custom circular checkbox */
+.checkmark {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 1.3em;
+    width: 1.3em;
+    background: black;
+    border-radius: 50px;
+    transition: all 0.5s ease-in-out;
+    --spread: 20px;
+}
+
+/* When checked, show a gradient glow effect */
+.container input:checked ~ .checkmark {
+    background: black;
+    box-shadow: -10px -10px var(--spread) 0px #5B51D8, 
+                0 -10px var(--spread) 0px #833AB4, 
+                10px -10px var(--spread) 0px #E1306C, 
+                10px 0 var(--spread) 0px #FD1D1D, 
+                10px 10px var(--spread) 0px #F77737, 
+                0 10px var(--spread) 0px #FCAF45, 
+                -10px 10px var(--spread) 0px #FFDC80;
+}
+
+/* Checkmark symbol inside */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark */
+.container .checkmark:after {
+    left: 0.45em;
+    top: 0.25em;
+    width: 0.25em;
+    height: 0.5em;
+    border: solid #f0f0f0;
+    border-width: 0 0.15em 0.15em 0;
+    transform: rotate(45deg);
+}
+
+
