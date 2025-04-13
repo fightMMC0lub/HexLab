@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Knowledge Hub</title>
     <style>
-        /* Base Styles */
         :root {
             --primary-light: #f8f9fa;
             --primary-dark: #212529;
@@ -36,7 +35,30 @@
             color: var(--primary-light);
         }
 
-        /* Circular Theme Switcher */
+        /* Construction Banner */
+        .construction-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            background: rgba(231, 76, 60, 0.9);
+            color: white;
+            padding: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            z-index: 999;
+            animation: marquee 15s linear infinite;
+            font-size: 1.2em;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Theme Switcher */
         .theme-switcher {
             position: fixed;
             bottom: 30px;
@@ -67,7 +89,7 @@
             border-color: rgba(0,0,0,0.1);
         }
 
-        /* Existing Content Styles (keep your original structure) */
+        /* Content Styles */
         .navbar {
             background: var(--accent-color);
             color: white;
@@ -159,14 +181,21 @@
                 height: 45px;
                 font-size: 1.3em;
             }
+            
+            .construction-banner {
+                font-size: 1em;
+                bottom: 60px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Theme Toggle Button -->
+    <div class="construction-banner">
+        Hii wlcomme i'm working on this page at soon it will complet
+    </div>
+
     <button class="theme-switcher" onclick="toggleTheme()" aria-label="Toggle theme">☀️</button>
 
-    <!-- Your Existing Content -->
     <nav class="navbar">
         <h1>Tech Knowledge Hub</h1>
     </nav>
@@ -178,12 +207,59 @@
         </section>
 
         <div class="category-grid">
-            <!-- Your category cards here -->
+            <article class="category-card">
+                <h2>Cybersecurity</h2>
+                <ul>
+                    <li><a href="#">Security Fundamentals</a></li>
+                    <li><a href="#">Protection Tools</a></li>
+                    <li><a href="#">Penetration Testing</a></li>
+                    <li><a href="#">Latest Threats</a></li>
+                </ul>
+            </article>
+
+            <article class="category-card">
+                <h2>Programming</h2>
+                <ul>
+                    <li><a href="#">Python</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                    <li><a href="#">Algorithms</a></li>
+                    <li><a href="#">Data Structures</a></li>
+                </ul>
+            </article>
+
+            <article class="category-card">
+                <h2>Networking</h2>
+                <ul>
+                    <li><a href="#">Networking Basics</a></li>
+                    <li><a href="#">Cisco Certifications</a></li>
+                    <li><a href="#">Network Security</a></li>
+                    <li><a href="#">IPv4/IPv6</a></li>
+                </ul>
+            </article>
+
+            <article class="category-card">
+                <h2>Scripts</h2>
+                <ul>
+                    <li><a href="#">Bash Scripting</a></li>
+                    <li><a href="#">PowerShell</a></li>
+                    <li><a href="#">Automation</a></li>
+                    <li><a href="#">Practical Examples</a></li>
+                </ul>
+            </article>
+
+            <article class="category-card">
+                <h2>Operating Systems</h2>
+                <ul>
+                    <li><a href="#">Linux</a></li>
+                    <li><a href="#">Windows</a></li>
+                    <li><a href="#">System Administration</a></li>
+                    <li><a href="#">Virtualization</a></li>
+                </ul>
+            </article>
         </div>
     </div>
 
     <script>
-        // Advanced Theme Toggler
         function toggleTheme() {
             const body = document.body;
             const isDark = !body.classList.contains('dark-theme');
@@ -191,23 +267,19 @@
             
             body.classList.toggle('dark-theme');
             
-            // Smooth button animation
             themeButton.style.transform = `scale(0.9)`;
             setTimeout(() => {
                 themeButton.style.transform = `scale(1)`;
             }, 100);
 
-            // Update icon
             themeButton.innerHTML = isDark ? '🌙' : '☀️';
             
-            // Save preference
             localStorage.setItem('siteTheme', JSON.stringify({
                 darkMode: isDark,
-                expires: Date.now() + 2592000000 // 30 days
+                expires: Date.now() + 2592000000
             }));
         }
 
-        // Load theme
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = JSON.parse(localStorage.getItem('siteTheme'));
             const themeButton = document.querySelector('.theme-switcher');
@@ -221,7 +293,6 @@
                 localStorage.removeItem('siteTheme');
             }
             
-            // Add initial animation
             themeButton.style.opacity = '0';
             setTimeout(() => {
                 themeButton.style.opacity = '1';
