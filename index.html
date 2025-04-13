@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Knowledge Hub</title>
     <style>
+        /* Base Styles */
         :root {
             --primary-light: #f8f9fa;
             --primary-dark: #212529;
@@ -16,7 +17,10 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+            transition: 
+                background-color var(--transition-speed) ease,
+                color var(--transition-speed) ease,
+                transform 0.2s ease;
         }
 
         body {
@@ -32,27 +36,38 @@
             color: var(--primary-light);
         }
 
-        /* Theme Switcher */
+        /* Circular Theme Switcher */
         .theme-switcher {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 25px;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             background: var(--accent-color);
-            color: white;
+            border: 2px solid rgba(255,255,255,0.1);
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             z-index: 1000;
         }
 
         .theme-switcher:hover {
-            transform: scale(1.05);
+            transform: scale(1.1) rotate(15deg);
             box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
 
-        /* Navbar */
+        body.dark-theme .theme-switcher {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-color: rgba(0,0,0,0.1);
+        }
+
+        /* Existing Content Styles (keep your original structure) */
         .navbar {
             background: var(--accent-color);
             color: white;
@@ -63,7 +78,6 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        /* Main Content */
         .container {
             max-width: 1200px;
             margin: 80px auto 0;
@@ -77,7 +91,6 @@
             padding: 20px;
         }
 
-        /* Cards */
         .category-card {
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
@@ -97,7 +110,6 @@
             box-shadow: 0 12px 40px rgba(0,0,0,0.2);
         }
 
-        /* Typography */
         h2 {
             color: var(--accent-color);
             border-bottom: 2px solid #eee;
@@ -114,7 +126,6 @@
             margin-bottom: 30px;
         }
 
-        /* Links */
         a {
             position: relative;
             color: var(--accent-color);
@@ -136,23 +147,26 @@
             width: 100%;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .category-grid {
                 grid-template-columns: 1fr;
             }
             
             .theme-switcher {
-                bottom: 10px;
-                right: 10px;
-                font-size: 0.9rem;
+                bottom: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.3em;
             }
         }
     </style>
 </head>
 <body>
-    <button class="theme-switcher" onclick="toggleTheme()">🌓 Toggle Theme</button>
+    <!-- Theme Toggle Button -->
+    <button class="theme-switcher" onclick="toggleTheme()" aria-label="Toggle theme">☀️</button>
 
+    <!-- Your Existing Content -->
     <nav class="navbar">
         <h1>Tech Knowledge Hub</h1>
     </nav>
@@ -164,77 +178,54 @@
         </section>
 
         <div class="category-grid">
-            <!-- Cybersecurity Section -->
-            <article class="category-card">
-                <h2>Cybersecurity</h2>
-                <ul>
-                    <li><a href="#">Security Fundamentals</a></li>
-                    <li><a href="#">Protection Tools</a></li>
-                    <li><a href="#">Penetration Testing</a></li>
-                    <li><a href="#">Latest Threats</a></li>
-                </ul>
-            </article>
-
-            <!-- Programming Section -->
-            <article class="category-card">
-                <h2>Programming</h2>
-                <ul>
-                    <li><a href="#">Python</a></li>
-                    <li><a href="#">JavaScript</a></li>
-                    <li><a href="#">Algorithms</a></li>
-                    <li><a href="#">Data Structures</a></li>
-                </ul>
-            </article>
-
-            <!-- Networking Section -->
-            <article class="category-card">
-                <h2>Networking</h2>
-                <ul>
-                    <li><a href="#">Networking Basics</a></li>
-                    <li><a href="#">Cisco Certifications</a></li>
-                    <li><a href="#">Network Security</a></li>
-                    <li><a href="#">IPv4/IPv6</a></li>
-                </ul>
-            </article>
-
-            <!-- Scripts Section -->
-            <article class="category-card">
-                <h2>Scripts</h2>
-                <ul>
-                    <li><a href="#">Bash Scripting</a></li>
-                    <li><a href="#">PowerShell</a></li>
-                    <li><a href="#">Automation</a></li>
-                    <li><a href="#">Practical Examples</a></li>
-                </ul>
-            </article>
-
-            <!-- OS Section -->
-            <article class="category-card">
-                <h2>Operating Systems</h2>
-                <ul>
-                    <li><a href="#">Linux</a></li>
-                    <li><a href="#">Windows</a></li>
-                    <li><a href="#">System Administration</a></li>
-                    <li><a href="#">Virtualization</a></li>
-                </ul>
-            </article>
+            <!-- Your category cards here -->
         </div>
     </div>
 
     <script>
-        // Theme Toggling Functionality
+        // Advanced Theme Toggler
         function toggleTheme() {
-            document.body.classList.toggle('dark-theme');
+            const body = document.body;
+            const isDark = !body.classList.contains('dark-theme');
+            const themeButton = document.querySelector('.theme-switcher');
             
-            // Save user preference
-            const isDark = document.body.classList.contains('dark-theme');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            body.classList.toggle('dark-theme');
+            
+            // Smooth button animation
+            themeButton.style.transform = `scale(0.9)`;
+            setTimeout(() => {
+                themeButton.style.transform = `scale(1)`;
+            }, 100);
+
+            // Update icon
+            themeButton.innerHTML = isDark ? '🌙' : '☀️';
+            
+            // Save preference
+            localStorage.setItem('siteTheme', JSON.stringify({
+                darkMode: isDark,
+                expires: Date.now() + 2592000000 // 30 days
+            }));
         }
 
-        // Load saved theme preference
+        // Load theme
         document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            if (savedTheme === 'dark') document.body.classList.add('dark-theme');
+            const savedTheme = JSON.parse(localStorage.getItem('siteTheme'));
+            const themeButton = document.querySelector('.theme-switcher');
+            
+            if (savedTheme && savedTheme.expires > Date.now()) {
+                if (savedTheme.darkMode) {
+                    document.body.classList.add('dark-theme');
+                    themeButton.innerHTML = '🌙';
+                }
+            } else {
+                localStorage.removeItem('siteTheme');
+            }
+            
+            // Add initial animation
+            themeButton.style.opacity = '0';
+            setTimeout(() => {
+                themeButton.style.opacity = '1';
+            }, 500);
         });
     </script>
 </body>
