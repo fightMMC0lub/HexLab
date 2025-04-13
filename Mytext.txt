@@ -1,0 +1,17 @@
+Welcome to Tech Knowledge Hub
+
+This platform provides:
+- Cybersecurity educational resources
+- Advanced programming tutorials
+- Detailed networking guides
+- Ready-to-use scripts
+- OS configuration manuals
+
+Key Features:
+✓ Weekly updates
+✓ Practical examples
+✓ Support community
+✓ Open source resources
+
+Contact us:
+contact@techhub.example.com

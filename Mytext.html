@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Knowledge Hub</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: #f5f6fa;
+        }
+
+        .navbar {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 20px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            padding: 8px 0;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .welcome-section {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Tech Knowledge Hub</h1>
+    </nav>
+
+    <div class="container">
+        <section class="welcome-section">
+            <h2>Welcome to Tech Knowledge Hub</h2>
+            <p>Your comprehensive source for Cybersecurity, Programming, and Operating Systems knowledge</p>
+        </section>
+
+        <div class="category-grid">
+            <!-- Cybersecurity Section -->
+            <article class="category-card">
+                <h2>Cybersecurity</h2>
+                <ul>
+                    <li><a href="#">Security Fundamentals</a></li>
+                    <li><a href="#">Protection Tools</a></li>
+                    <li><a href="#">Penetration Testing</a></li>
+                    <li><a href="#">Latest Threats</a></li>
+                </ul>
+            </article>
+
+            <!-- Programming Section -->
+            <article class="category-card">
+                <h2>Programming</h2>
+                <ul>
+                    <li><a href="#">Python</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                    <li><a href="#">Algorithms</a></li>
+                    <li><a href="#">Data Structures</a></li>
+                </ul>
+            </article>
+
+            <!-- Networking Section -->
+            <article class="category-card">
+                <h2>Networking</h2>
+                <ul>
+                    <li><a href="#">Networking Basics</a></li>
+                    <li><a href="#">Cisco Certifications</a></li>
+                    <li><a href="#">Network Security</a></li>
+                    <li><a href="#">IPv4/IPv6</a></li>
+                </ul>
+            </article>
+
+            <!-- Scripts Section -->
+            <article class="category-card">
+                <h2>Scripts</h2>
+                <ul>
+                    <li><a href="#">Bash Scripting</a></li>
+                    <li><a href="#">PowerShell</a></li>
+                    <li><a href="#">Automation</a></li>
+                    <li><a href="#">Practical Examples</a></li>
+                </ul>
+            </article>
+
+            <!-- OS Section -->
+            <article class="category-card">
+                <h2>Operating Systems</h2>
+                <ul>
+                    <li><a href="#">Linux</a></li>
+                    <li><a href="#">Windows</a></li>
+                    <li><a href="#">System Administration</a></li>
+                    <li><a href="#">Virtualization</a></li>
+                </ul>
+            </article>
+        </div>
+    </div>
+</body>
+</html>
